@@ -1,0 +1,23 @@
+/*
+Given the names and grades for each student in a class of  students, store them in a nested list and print the name(s) of any student(s) having the second lowest grade.
+
+Note: If there are multiple students with the second lowest grade, order their names alphabetically and print each name on a new line.
+
+https://www.hackerrank.com/challenges/nested-list/problem?isFullScreen=true
+
+*/
+
+if __name__ == '__main__':
+    
+    list_scores = []
+    
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        list_scores.append([name, score])
+        
+    #Para obtener el segundo mas alto
+    runner_up = sorted(set([score for name, score in list_scores]))[1]
+    
+    print('\n'.join(sorted([name for name, score in list_scores if score == runner_up])))
+    
